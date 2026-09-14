@@ -144,3 +144,45 @@ curl -X POST http://127.0.0.1:8000/expenses/ \
 curl -X GET "http://127.0.0.1:8000/expenses/summary?month=9&year=2026" \
   -H "Authorization: Bearer <token>"
 ```
+
+```markdown
+## Streamlit UI
+
+Простой веб-интерфейс поверх API на базе Streamlit.
+
+### Установка зависимостей
+
+```bash
+pip install streamlit requests
+```
+
+### Запуск
+
+Нужно два терминала одновременно:
+
+**Терминал 1 — API:**
+```bash
+# Windows
+venv\Scripts\Activate.ps1
+uvicorn app.main:app --reload
+```
+
+**Терминал 2 — UI:**
+```bash
+# Windows
+venv\Scripts\Activate.ps1
+cd streamlit_app
+streamlit run app.py
+```
+
+UI откроется в браузере на `http://localhost:8501`
+
+### Возможности UI
+
+- Регистрация и вход
+- Управление категориями
+- Добавление и просмотр расходов с фильтрами
+- Бюджеты с визуальным статусом (прогресс-бары)
+- Аналитика с графиком расходов по категориям
+- Генерация повторяющихся расходов
+```
